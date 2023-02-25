@@ -5,6 +5,7 @@
 			<input id="data-input" placeholder="Put Data String Here">
 			<button id="load-data" onclick="loadData()">Load Data</button>
 			<button id="get-data" onclick="getData()">Get Data</button>
+			<button id="reset-all" onclick="resetAll()">RESET PROGRESS</button>
 		</div>
 		<div id="gold-items">
 			<button id="1000clicker" onclick="clicked1000()" class="gold-buttons">$100 000 000 to unlock</button>
@@ -186,6 +187,37 @@
 	let autoBuyToggled100 = false;
 	let autoBuyToggled500 = false;
 	let autoBuyToggled1000 = false;
+	
+	function resetAll() {
+		
+		key = "BypassedGames";
+
+		money = 0;
+		clickable1 = true;
+		clickable5 = false;
+		clickable10 = false;
+		clickable20 = false;
+		clickable100 = false;
+		clickable500 = false;
+		clickable1000 = false;
+
+		autoMoney = 0;
+
+		autoBuy1 = false;
+		autoBuy5 = false;
+		autoBuy10 = false;
+		autoBuy100 = false;
+		autoBuy500 = false;
+		autoBuy1000 = false;
+
+		autoBuyToggled1 = false;
+		autoBuyToggled5 = false;
+		autoBuyToggled10 = false;
+		autoBuyToggled100 = false;
+		autoBuyToggled500 = false;
+		autoBuyToggled1000 = false;
+		
+	}
 	
 	function encrypt(string, pass) {
 		
