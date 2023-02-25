@@ -4,7 +4,7 @@
 		<div id="save-and-load">
 			<input id="data-input" placeholder="Put Data String Here">
 			<button id="load-data" onclick="loadData()">Load Data</button>
-			<button id="get-sata" onclick="getData()">Get Data</button>
+			<button id="get-data" onclick="getData()">Get Data</button>
 		</div>
 		<div id="gold-items">
 			<button id="1000clicker" onclick="clicked1000()" class="gold-buttons">$100 000 000 to unlock</button>
@@ -143,6 +143,8 @@
 
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
 <script>
 
 	let money = 0;
@@ -170,9 +172,17 @@
 	let autoBuyToggled500 = true;
 	let autoBuyToggled1000 = true;
 	
+	function encrypt(string, pass) {
+		
+		var encrypted = CryptoJS.AES.encrypt(string, pass);
+		let result = encrypted.toString();
+		return result;
+		
+	}
+	
 	function getData() {
 		
-		alert("Your Data String : \n hi");
+		alert(encrypt("works", "1234"));
 		
 	}
 	
