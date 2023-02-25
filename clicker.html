@@ -267,6 +267,91 @@
 		autoBuyToggled500 = convertBooleanInt(parseInt(data_vals[19]));
 		autoBuyToggled1000 = convertBooleanInt(parseInt(data_vals[20]));
 		
+		reloadGUI();
+		
+	}
+	
+	function reloadGUI() {
+		
+		if (clickable1) {
+			document.getElementById("1clicker").innerHTML = "$1 Clicker";
+		}
+		
+		if (clickable5) {
+			document.getElementById("5clicker").innerHTML = "$5 Clicker";
+		}
+		
+		if (clickable10) {
+			document.getElementById("10clicker").innerHTML = "$10 Clicker";
+		}
+		
+		if (clickable20) {
+			document.getElementById("20clicker").innerHTML = "$20 Clicker";
+		}
+		
+		if (clickable100) {
+			document.getElementById("100clicker").innerHTML = "$100 Clicker";
+		}
+		
+		if (clickable500) {
+			document.getElementById("500clicker").innerHTML = "$500 Clicker";
+		}
+		
+		if (clickable1000) {
+			document.getElementById("1000clicker").innerHTML = "$1 000 Clicker";
+		}
+		
+		if (autoBuy1) {
+			if (autoBuyToggled1) {
+				document.getElementById("1autobuy").innerHTML = "$1 autobuy bought - on";
+			} else {
+				document.getElementById("1autobuy").innerHTML = "$1 autobuy bought - off";
+			}
+		}
+		
+		if (autoBuy5) {
+			if (autoBuyToggled5) {
+				document.getElementById("5autobuy").innerHTML = "$5 autobuy bought - on";
+			} else {
+				document.getElementById("5autobuy").innerHTML = "$5 autobuy bought - off";
+			}
+		}
+		
+		if (autoBuy10) {
+			if (autoBuyToggled10) {
+				document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - on";
+			} else {
+				document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - off";
+			}
+		}
+		
+		if (autoBuy100) {
+			if (autoBuyToggled100) {
+				document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - on";
+			} else {
+				document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - off";
+			}
+		}
+		
+		if (autoBuy500) {
+			if (autoBuyToggled500) {
+				document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - on";
+			} else {
+				document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - off";
+			}
+		}
+		
+		if (autoBuy1000) {
+			if (autoBuyToggled1000) {
+				document.getElementById("1000autobuy").innerHTML = "$1000 autobuy bought - on";
+			} else {
+				document.getElementById("1000autobuy").innerHTML = "$1000 autobuy bought - off";
+			}
+		}
+		
+		document.getElementById("count").innerHTML = money;
+		document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
 	}
 	
 	function convertBoolean(bool) {
@@ -547,7 +632,6 @@
 		if (money >= 1000 && !autoBuy1) {
 
 			money -= 1000;
-			document.getElementById("1autobuy").innerHTML = "$1 autobuy bought";
 			document.getElementById("count").innerHTML = money;
 			autoBuy1 = true;
 			autoBuyEnabled1 = true;
@@ -574,7 +658,6 @@
 		if (money >= 10000 && !autoBuy5) {
 
 			money -= 10000;
-			document.getElementById("5autobuy").innerHTML = "$5 autobuy bought";
 			document.getElementById("count").innerHTML = money;
 			autoBuy5 = true;
 			autoBuyEnabled5 = true;
@@ -601,7 +684,6 @@
 		if (money >= 100000 && !autoBuy10) {
 
 			money -= 100000;
-			document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - on";
 			document.getElementById("count").innerHTML = money;
 			autoBuy10 = true;
 			autoBuyEnabled10 = true;
@@ -628,7 +710,6 @@
 		if (money >= 100000000 && !autoBuy100) {
 
 			money -= 100000000;
-			document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - on";
 			document.getElementById("count").innerHTML = money;
 			autoBuy100 = true;
 			autoBuyEnabled100 = true;
@@ -655,7 +736,6 @@
 		if (money >= 1000000000 && !autoBuy500) {
 
 			money -= 1000000000;
-			document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - on";
 			document.getElementById("count").innerHTML = money;
 			autoBuy500 = true;
 			autoBuyEnabled500 = true;
@@ -682,7 +762,6 @@
 		if (money >= 10000000000 && !autoBuy1000) {
 
 			money -= 10000000000;
-			document.getElementById("1000autobuy").innerHTML = "$1 000 autobuy bought - on";
 			document.getElementById("count").innerHTML = money;
 			autoBuy1000 = true;
 			autoBuyEnabled1000 = true;
