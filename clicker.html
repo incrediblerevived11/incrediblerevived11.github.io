@@ -159,6 +159,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 
 <script>
+	
+	let key = "BypassedGames";
 
 	let money = 0;
 	let clickable1 = true;
@@ -187,8 +189,16 @@
 	
 	function encrypt(string, pass) {
 		
-		var encrypted = CryptoJS.AES.encrypt(string, pass);
+		let encrypted = CryptoJS.AES.encrypt(string, pass);
 		let result = encrypted.toString();
+		return result;
+		
+	}
+	
+	function decrypt(encrypted, pass) {
+		
+		let decrypted = CryptoJS.AES.decrypt(encrypted, pass);
+		let result = decrypted.toString(CryptoJS.enc.Utf8);
 		return result;
 		
 	}
@@ -196,7 +206,6 @@
 	function getData() {
 		
 		let data = "";
-		let key = "";
 		
 		data += money + ";";
 		data += autoMoney + ";";
@@ -221,20 +230,42 @@
 		data += convertBoolean(autoBuyToggled10) + ";";
 		data += convertBoolean(autoBuyToggled100) + ";";
 		data += convertBoolean(autoBuyToggled500) + ";";
-		data += convertBoolean(autoBuyToggled1000) + ":";
+		data += convertBoolean(autoBuyToggled1000);
 		
-		key = "BypassedGames";
-		data += key;
-		
-		alert("Your Data String : \n\n" + encrypt(data, key))
+		alert("Your Data String : \n\n" + encrypt(data, key));
 		
 	}
 	
 	function loadData() {
 		
-		let string = document.getElementById("data-input").innerHTML;
+		let string = document.getElementById("data-input").value;
+		let data = decrypt(string, key);
+		let data_vals = data.split(";");
 		
-		alert(string);
+		money = parseInt(data_vals[0]);
+		autoMoney = parseInt(data_vals[1]);
+		
+		clickable1 = convertBooleanInt(parseInt(data_vals[2]));
+		clickable5 = convertBooleanInt(parseInt(data_vals[3]));
+		clickable10 = convertBooleanInt(parseInt(data_vals[4]));
+		clickable20 = convertBooleanInt(parseInt(data_vals[5]));
+		clickable100 = convertBooleanInt(parseInt(data_vals[6]));
+		clickable500 = convertBooleanInt(parseInt(data_vals[7]));
+		clickable1000 = convertBooleanInt(parseInt(data_vals[8]));
+		
+		autoBuy1 = convertBooleanInt(parseInt(data_vals[9]));
+		autoBuy5 = convertBooleanInt(parseInt(data_vals[10]));
+		autoBuy10 = convertBooleanInt(parseInt(data_vals[11]));
+		autoBuy100 = convertBooleanInt(parseInt(data_vals[12]));
+		autoBuy500 = convertBooleanInt(parseInt(data_vals[13]));
+		autoBuy1000 = convertBooleanInt(parseInt(data_vals[14]));
+		
+		autoBuyToggled1 = convertBooleanInt(parseInt(data_vals[15]));
+		autoBuyToggled5 = convertBooleanInt(parseInt(data_vals[16]));
+		autoBuyToggled10 = convertBooleanInt(parseInt(data_vals[17]));
+		autoBuyToggled100 = convertBooleanInt(parseInt(data_vals[18]));
+		autoBuyToggled500 = convertBooleanInt(parseInt(data_vals[19]));
+		autoBuyToggled1000 = convertBooleanInt(parseInt(data_vals[20]));
 		
 	}
 	
