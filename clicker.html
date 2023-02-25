@@ -121,7 +121,7 @@
 		width: 600px;
 		padding: 10px;
 		transform: translate(-50%, -50%);
-		background: rgb(255, 215, 0);
+		background: rgb(255, 255, 255);
 		border-radius: 10px;
 
 	}
@@ -230,12 +230,30 @@
 		
 	}
 	
+	function loadData() {
+		
+		let string = document.getElementById("data-input").innerHTML;
+		
+		alert(string);
+		
+	}
+	
 	function convertBoolean(bool) {
 		
 		if (bool) {
 			return 1;
 		} else {
 			return 0;
+		}
+		
+	}
+	
+	function convertBooleanInt(num) {
+		
+		if (num == 1) {
+			return true;
+		} else {
+			return false;
 		}
 		
 	}
