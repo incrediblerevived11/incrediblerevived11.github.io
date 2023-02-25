@@ -165,12 +165,12 @@
 	let autoBuy500 = false;
 	let autoBuy1000 = false;
 
-	let autoBuyToggled1 = true;
-	let autoBuyToggled5 = true;
-	let autoBuyToggled10 = true;
-	let autoBuyToggled100 = true;
-	let autoBuyToggled500 = true;
-	let autoBuyToggled1000 = true;
+	let autoBuyToggled1 = false;
+	let autoBuyToggled5 = false;
+	let autoBuyToggled10 = false;
+	let autoBuyToggled100 = false;
+	let autoBuyToggled500 = false;
+	let autoBuyToggled1000 = false;
 	
 	function encrypt(string, pass) {
 		
@@ -182,7 +182,48 @@
 	
 	function getData() {
 		
-		alert(encrypt("works", "1234"));
+		let data = "";
+		let key = "";
+		
+		data += money + ";";
+		data += autoMoney + ";";
+		
+		data += convertBoolean(clickable1) + ";";
+		data += convertBoolean(clickable5) + ";";
+		data += convertBoolean(clickable10) + ";";
+		data += convertBoolean(clickable20) + ";";
+		data += convertBoolean(clickable100) + ";";
+		data += convertBoolean(clickable500) + ";";
+		data += convertBoolean(clickable1000) + ";";
+		
+		data += convertBoolean(autoBuy1) + ";";
+		data += convertBoolean(autoBuy5) + ";";
+		data += convertBoolean(autoBuy10) + ";";
+		data += convertBoolean(autoBuy100) + ";";
+		data += convertBoolean(autoBuy500) + ";";
+		data += convertBoolean(autoBuy1000) + ";";
+		
+		data += convertBoolean(autoBuyToggled1) + ";";
+		data += convertBoolean(autoBuyToggled5) + ";";
+		data += convertBoolean(autoBuyToggled10) + ";";
+		data += convertBoolean(autoBuyToggled100) + ";";
+		data += convertBoolean(autoBuyToggled500) + ";";
+		data += convertBoolean(autoBuyToggled1000) + ":";
+		
+		key = "BypassedGames";
+		data += key;
+		
+		alert("Unencrypted data : \n" + data + "\n" + "Encrypted data : \n" + encrypt(data, key))
+		
+	}
+	
+	function convertBoolean(bool) {
+		
+		if (bool) {
+			return 1;
+		} else {
+			return 0;
+		}
 		
 	}
 	
