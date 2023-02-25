@@ -1,6 +1,11 @@
 <html>
 	<head><title> Clicker Tycoon - BypassedGames </title></head>
 	<body>
+		<div id="save-and-load">
+			<input id="data-input" placeholder="Put Data String Here">
+			<button id="load-data" onclick="loadData()">Load Data</button>
+			<button id="get-sata" onclick="getData()">Get Data</button>
+		</div>
 		<div id="gold-items">
 			<button id="1000clicker" onclick="clicked1000()" class="gold-buttons">$100 000 000 to unlock</button>
 			<button id="1000autoclicker" onclick="autoclick1000()" class="gold-buttons">$1 000 000 000 - $1 000 autoclick</button>
@@ -164,6 +169,12 @@
 	let autoBuyToggled100 = true;
 	let autoBuyToggled500 = true;
 	let autoBuyToggled1000 = true;
+	
+	function getData() {
+		
+		alert("Your Data String : \n hi");
+		
+	}
 	
 	function clicked1() {
 
