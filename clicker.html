@@ -112,6 +112,19 @@
 		border-radius: 10px;
 
 	}
+	
+	#save-and-load {
+
+		position: absolute;
+		top: 5%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		background: rgb(255, 215, 0);
+		border-radius: 10px;
+
+	}
 
 	.regular-buttons {
 
@@ -213,7 +226,7 @@
 		key = "BypassedGames";
 		data += key;
 		
-		alert("Unencrypted data : \n" + data + "\n" + "Encrypted data : \n" + encrypt(data, key))
+		alert("Your Data String : \n\n" + encrypt(data, key))
 		
 	}
 	
