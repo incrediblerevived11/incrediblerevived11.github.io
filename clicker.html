@@ -5,7 +5,8 @@
 			<input id="data-input" placeholder="Put Data String Here">
 			<button id="load-data" onclick="loadData()">Load Data</button>
 			<button id="get-data" onclick="getData()">Get Data</button>
-			<button id="reset-all" onclick="resetAll()">RESET PROGRESS</button>
+			<button id="reset-all" onclick="resetAll()">RESET PROGRESS</button><br>
+			<p id="data-string">Data String Here</p>
 		</div>
 		<div id="gold-items">
 			<button id="1000clicker" onclick="clicked1000()" class="gold-buttons">$100 000 000 to unlock</button>
@@ -266,7 +267,7 @@
 		data += convertBoolean(autoBuyToggled500) + ";";
 		data += convertBoolean(autoBuyToggled1000);
 		
-		alert("Your Data String : \n\n" + encrypt(data, key));
+		document.getElementById("data-string").innerHTML = encrypt(data, key);
 		
 	}
 	
