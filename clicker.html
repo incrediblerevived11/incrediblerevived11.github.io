@@ -397,9 +397,9 @@
 	
 	function convertBoolean(bool) {
 		
-		if (bool) {
+		if (bool == true) {
 			return 1;
-		} else {
+		} if (bool == false) {
 			return 0;
 		}
 		
@@ -409,7 +409,7 @@
 		
 		if (num == 1) {
 			return true;
-		} else {
+		} if (num == 0) {
 			return false;
 		}
 		
