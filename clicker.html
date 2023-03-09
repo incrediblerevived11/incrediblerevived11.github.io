@@ -209,12 +209,12 @@
 		localStorage.setItem("autobuy500", JSON.stringify(autoBuy500));
 		localStorage.setItem("autobuy1000", JSON.stringify(autoBuy1000));
 		
-		localStorage.setItem("autobuyenabled1", JSON.stringify(autoBuyEnabled1));
-		localStorage.setItem("autobuyenabled5", JSON.stringify(autoBuyEnabled5));
-		localStorage.setItem("autobuyenabled10", JSON.stringify(autoBuyEnabled10));
-		localStorage.setItem("autobuyenabled100", JSON.stringify(autoBuyEnabled100));
-		localStorage.setItem("autobuyenabled500", JSON.stringify(autoBuyEnabled500));
-		localStorage.setItem("autobuyenabled1000", JSON.stringify(autoBuyEnabled1000));
+		localStorage.setItem("autobuyenabled1", JSON.stringify(autoBuyToggled1));
+		localStorage.setItem("autobuyenabled5", JSON.stringify(autoBuyToggled5));
+		localStorage.setItem("autobuyenabled10", JSON.stringify(autoBuyToggled10));
+		localStorage.setItem("autobuyenabled100", JSON.stringify(autoBuyToggled100));
+		localStorage.setItem("autobuyenabled500", JSON.stringify(autoBuyToggled500));
+		localStorage.setItem("autobuyenabled1000", JSON.stringify(autoBuyToggled1000));
 
 	}
 
@@ -232,19 +232,19 @@
 
 		autoMoney = JSON.parse(localStorage.getItem("autoMoney"));
 
-		autoBuy1 = JSON.parse(localStorage.getItem("autoBuy1"));
-		autoBuy5 = JSON.parse(localStorage.getItem("autoBuy5"));
-		autoBuy10 = JSON.parse(localStorage.getItem("autoBuy10"));
-		autoBuy100 = JSON.parse(localStorage.getItem("autoBuy100"));
-		autoBuy500 = JSON.parse(localStorage.getItem("autoBuy500"));
-		autoBuy1000 = JSON.parse(localStorage.getItem("autoBuy1000"));
+		autoBuy1 = JSON.parse(localStorage.getItem("autobuy1"));
+		autoBuy5 = JSON.parse(localStorage.getItem("autobuy5"));
+		autoBuy10 = JSON.parse(localStorage.getItem("autobuy10"));
+		autoBuy100 = JSON.parse(localStorage.getItem("autobuy100"));
+		autoBuy500 = JSON.parse(localStorage.getItem("autobuy500"));
+		autoBuy1000 = JSON.parse(localStorage.getItem("autobuy1000"));
 
-		autoBuyEnabled1 = JSON.parse(localStorage.getItem("autoBuyEnabled1"));
-		autoBuyEnabled5 = JSON.parse(localStorage.getItem("autoBuyEnabled5"));
-		autoBuyEnabled10 = JSON.parse(localStorage.getItem("autoBuyEnabled10"));
-		autoBuyEnabled100 = JSON.parse(localStorage.getItem("autoBuyEnabled100"));
-		autoBuyEnabled500 = JSON.parse(localStorage.getItem("autoBuyEnabled500"));
-		autoBuyEnabled1000 = JSON.parse(localStorage.getItem("autoBuyEnabled1000"));
+		autoBuyToggled1 = JSON.parse(localStorage.getItem("autobuyenabled1"));
+		autoBuyToggled5 = JSON.parse(localStorage.getItem("autobuyenabled5"));
+		autoBuyToggled10 = JSON.parse(localStorage.getItem("autobuyenabled10"));
+		autoBuyToggled100 = JSON.parse(localStorage.getItem("autobuyenabled100"));
+		autoBuyToggled500 = JSON.parse(localStorage.getItem("autobuyenabled500"));
+		autoBuyToggled1000 = JSON.parse(localStorage.getItem("autobuyenabled1000"));
 
 		document.getElementById("count").innerHTML = money;
 		document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
