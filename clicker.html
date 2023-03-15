@@ -2,8 +2,6 @@
 	<head><title> Clicker Game - BypassedGames </title></head>
 	<body>
 		<div id="save-and-load">
-			<button id="save" onclick="save()" class="save-buttons"> Save </button>
-			<button id="load" onclick="load()" class="save-buttons"> Load </button>
 			<button id="reset" onclick="reset()" class="save-buttons"> Reset </button>
 		</div>
 		<div id="gold-items">
@@ -698,6 +696,8 @@
 		document.getElementById("count").innerHTML = money;
 
 	}, 1000);
+	
+	load()
 
 	setInterval(function() {
 
@@ -758,6 +758,8 @@
 			document.getElementById("subcount").innerHTML = money;
 
 		}
+		
+		save()
 
 	}, 1);
 
