@@ -543,18 +543,18 @@
 			money -= 1000;
 			document.getElementById("count").innerHTML = money;
 			autoBuy1 = true;
-			autoBuyEnabled1 = true;
+			autoBuyToggled1 = true;
 
 		}
 
-		if (autoBuyEnabled1) {
+		if (autoBuyToggled1) {
 
-			autoBuyEnabled1 = false;
+			autoBuyToggled1 = false;
 			document.getElementById("1autobuy").innerHTML = "$1 autobuy bought - off";
 
 		} else {
 
-			autoBuyEnabled1 = true;
+			autoBuyToggled1 = true;
 			document.getElementById("1autobuy").innerHTML = "$1 autobuy bought - on";
 
 
@@ -569,18 +569,18 @@
 			money -= 10000;
 			document.getElementById("count").innerHTML = money;
 			autoBuy5 = true;
-			autoBuyEnabled5 = true;
+			autoBuyToggled5 = true;
 
 		}
 
-		if (autoBuyEnabled5) {
+		if (autoBuyToggled5) {
 
-			autoBuyEnabled5 = false;
+			autoBuyToggled5 = false;
 			document.getElementById("5autobuy").innerHTML = "$5 autobuy bought - off";
 
 		} else {
 
-			autoBuyEnabled5 = true;
+			autoBuyToggled5 = true;
 			document.getElementById("5autobuy").innerHTML = "$5 autobuy bought - on";
 
 
@@ -595,18 +595,18 @@
 			money -= 100000;
 			document.getElementById("count").innerHTML = money;
 			autoBuy10 = true;
-			autoBuyEnabled10 = true;
+			autoBuyToggled10 = true;
 
 		}
 
-		if (autoBuyEnabled10) {
+		if (autoBuyToggled10) {
 
-			autoBuyEnabled10 = false;
+			autoBuyToggled10 = false;
 			document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - off";
 
 		} else {
 
-			autoBuyEnabled10 = true;
+			autoBuyToggled10 = true;
 			document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - on";
 
 
@@ -621,18 +621,18 @@
 			money -= 100000000;
 			document.getElementById("count").innerHTML = money;
 			autoBuy100 = true;
-			autoBuyEnabled100 = true;
+			autoBuyToggled100 = true;
 
 		}
 
-		if (autoBuyEnabled100) {
+		if (autoBuyToggled100) {
 
-			autoBuyEnabled100 = false;
+			autoBuyToggled100 = false;
 			document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - off";
 
 		} else {
 
-			autoBuyEnabled100 = true;
+			autoBuyToggled100 = true;
 			document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - on";
 
 
@@ -647,18 +647,18 @@
 			money -= 1000000000;
 			document.getElementById("count").innerHTML = money;
 			autoBuy500 = true;
-			autoBuyEnabled500 = true;
+			autoBuyToggled500 = true;
 
 		}
 
-		if (autoBuyEnabled500) {
+		if (autoBuyToggled500) {
 
-			autoBuyEnabled500 = false;
+			autoBuyToggled500 = false;
 			document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - off";
 
 		} else {
 
-			autoBuyEnabled500 = true;
+			autoBuyToggled500 = true;
 			document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - on";
 
 
@@ -673,18 +673,18 @@
 			money -= 10000000000;
 			document.getElementById("count").innerHTML = money;
 			autoBuy1000 = true;
-			autoBuyEnabled1000 = true;
+			autoBuyToggled1000 = true;
 
 		}
 
-		if (autoBuyEnabled1000) {
+		if (autoBuyToggled1000) {
 
-			autoBuyEnabled1000 = false;
+			autoBuyToggled1000 = false;
 			document.getElementById("1000autobuy").innerHTML = "$1 000 autobuy bought - off";
 
 		} else {
 
-			autoBuyEnabled1000 = true;
+			autoBuyToggled1000 = true;
 			document.getElementById("1000autobuy").innerHTML = "$1 000 autobuy bought - on";
 
 
@@ -701,37 +701,37 @@
 
 	setInterval(function() {
 
-		if (autoBuy1 && autoBuyEnabled1) {
+		if (autoBuy1 && autoBuyToggled1) {
 
 			autoclick1();
 
 		}
 
-		if (autoBuy5 && autoBuyEnabled5) {
+		if (autoBuy5 && autoBuyToggled5) {
 
 			autoclick5();
 
 		}
 
-		if (autoBuy10 && autoBuyEnabled10) {
+		if (autoBuy10 && autoBuyToggled10) {
 
 			autoclick10();
 
 		}
 
-		if (autoBuy100 && autoBuyEnabled100) {
+		if (autoBuy100 && autoBuyToggled100) {
 
 			autoclick100();
 
 		}
 
-		if (autoBuy500 && autoBuyEnabled500) {
+		if (autoBuy500 && autoBuyToggled500) {
 
 			autoclick500();
 
 		}
 
-		if (autoBuy1000 && autoBuyEnabled1000) {
+		if (autoBuy1000 && autoBuyToggled1000) {
 
 			autoclick1000();
 
