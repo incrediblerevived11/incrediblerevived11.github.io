@@ -14,10 +14,16 @@
 			</div>
 		</div>
 		<div class="navigation-buttons" id="stocks">
-			
+			<img src="data:blank" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
+			<div id="stocks-text-div">
+				<h1 id="stocks-text">Current Stoncs</h1>
+			</div>
 		</div>
 		<div class="navigation-buttons" id="wallet">
-			
+			<img src="data:blank" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
+			<div id="wallet-text-div">
+				<h1 id="wallet-text">Wallet</h1>
+			</div>
 		</div>
 	</body>
 </html>
@@ -74,6 +80,44 @@
 	}
 
 	#how-to-play-text-div {
+		position: fixed;
+		top: 200px;
+		width: 300px;
+		height: 100px;
+		background: white;
+		border-radius: 0px 0px 20px 20px;
+	}
+
+	#stocks-text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "Courier New";
+		font-size: 30;
+		font-weight: 50;
+		color: rgb(0, 200, 0);
+	}
+
+	#stocks-text-div {
+		position: fixed;
+		top: 200px;
+		width: 300px;
+		height: 100px;
+		background: white;
+		border-radius: 0px 0px 20px 20px;
+	}
+
+	#wallet-text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "Courier New";
+		font-size: 30;
+		font-weight: 50;
+		color: rgb(0, 200, 0);
+	}
+
+	#wallet-text-div {
 		position: fixed;
 		top: 200px;
 		width: 300px;
