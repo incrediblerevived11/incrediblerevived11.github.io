@@ -8,19 +8,19 @@
 		<h1 class="title" id="title1">Welcome to</h1>
 		<h1 class="title" id="title-name" data-value="StoncBeast">..........</h1>
 		<div class="navigation-buttons" id="how-to-play">
-			<img src="data:blank" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
+			<img src="https://lmelki28.github.io/StoncBeast-homepage-how-to-play.jpg" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
 			<div id="how-to-play-text-div">
 				<h1 id="how-to-play-text">How To Play</h1>
 			</div>
 		</div>
 		<div class="navigation-buttons" id="stocks">
-			<img src="data:blank" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
+			<img src="https://lmelki28.github.io/StoncBeast-homepage-stocks.jpg" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
 			<div id="stocks-text-div">
 				<h1 id="stocks-text">Current Stoncs</h1>
 			</div>
 		</div>
 		<div class="navigation-buttons" id="wallet">
-			<img src="data:blank" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
+			<img src="https://lmelki28.github.io/StoncBeast-homepage-wallet.jpg" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px;">
 			<div id="wallet-text-div">
 				<h1 id="wallet-text">Wallet</h1>
 			</div>
@@ -45,10 +45,10 @@
 	@keyframes navigation-wave {
 		from {
 			opacity: 0%;
-			top: 125%;
+			top: 115%;
 		} to {
 			opacity: 100%;
-			top: 50%;
+			top: 40%;
 		}
 	}
 
@@ -137,19 +137,19 @@
 	
 	#how-to-play {
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		left: 25%;
 	}
 
 	#stocks {
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		left: 50%;
 	}
 
 	#wallet {
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		left: 75%;
 	}
 
@@ -158,7 +158,17 @@
 
 
 <script>
-	
+	document.getElementById("how-to-play").onclick = (event) => {
+		alert("clicked 1");
+	}
+
+	document.getElementById("stocks").onclick = (event) => {
+		alert("clicked 2");
+	}
+
+	document.getElementById("wallet").onclick = (event) => {
+		alert("clicked 3");
+	}
 </script>
 
 
