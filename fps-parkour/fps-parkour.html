@@ -56,7 +56,10 @@
       // way that non-critical warnings and error messages are presented to the
       // user.
       
-      location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
+      if (((sessionStorage.getItem("read-me-fps")) === 'true') != true) {
+        location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
+        sessionStorage.setItem("read-me-fps", true);
+      }
       
       window.addEventListener('contextmenu', event => {
         event.preventDefault();
