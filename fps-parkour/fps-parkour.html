@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=720 height=450></canvas>
+      <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -32,12 +32,12 @@
       }
       p {
         font-family: "Courier New";
-        font-size: 15px;
+        font-size: 10px;
         font-weight: 100px;
       }
       a {
         font-family: "Courier New";
-        font-size: 15px;
+        font-size: 10px;
         font-weight: 100px;
       }
     </style>
@@ -56,11 +56,16 @@
       // way that non-critical warnings and error messages are presented to the
       // user.
       
-      let sesh = sessionStorage.getItem("read-me-fps) === 'true';
+      let seenDialogue = localStorage.getItem("read-me");
       
-      if (sesh != true) {
+      if ((seenDialogue === 'true') == true) {
+        console.log("");
+      } else {
+        localStorage.setItem("read-me", true);
         location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
       }
+      
+      if (seenDialogue == true)
       
       window.addEventListener('contextmenu', event => {
         event.preventDefault();
