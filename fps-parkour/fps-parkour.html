@@ -56,16 +56,7 @@
       // way that non-critical warnings and error messages are presented to the
       // user.
       
-      let seenDialogue = localStorage.getItem("read-me");
-      
-      if ((seenDialogue === 'true') == true) {
-        console.log("");
-      } else {
-        localStorage.setItem("read-me", true);
-        location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
-      }
-      
-      if (seenDialogue == true)
+      location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
       
       window.addEventListener('contextmenu', event => {
         event.preventDefault();
