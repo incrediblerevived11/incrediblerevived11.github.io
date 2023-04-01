@@ -37,6 +37,26 @@
       }
     </style>
     <script>
+      let seenDialogue = localStorage.getItem("read-me");
+      
+      if ((seenDialogue === 'true') == true) {
+        console.log("");
+      } else {
+        localStorage.setItem("read-me", true);
+        location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
+      }
+      
+      window.addEventListener('contextmenu', event => {
+        event.preventDefault();
+      });
+      
+      window.addEventListener('keydown', event => {
+        if (event.ctrlKey && 'abcdefghijklmnopqstuvwxyz'.indexOf(event.key) !== -1) {
+          event.preventDefault();
+        }
+      });
+    </script>
+    <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -50,27 +70,6 @@
       // Modify or remove this function to customize the visually presented
       // way that non-critical warnings and error messages are presented to the
       // user.
-      
-      let seenDialogue = localStorage.getItem("read-me");
-      
-      if ((seenDialogue === 'true') == true) {
-        console.log("");
-      } else {
-        localStorage.setItem("read-me", true);
-        location.replace("https://lmelki28.github.io/fps-parkour/read-me.html");
-      }
-      
-      if (seenDialogue == true)
-      
-      window.addEventListener('contextmenu', event => {
-        event.preventDefault();
-      });
-      
-      window.addEventListener('keydown', event => {
-        if (event.ctrlKey && 'abcdefghijklmnopqstuvwxyz'.indexOf(event.key) !== -1) {
-          event.preventDefault();
-        }
-      });
       
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
