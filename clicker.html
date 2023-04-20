@@ -1,0 +1,766 @@
+<html>
+	<head><title> Clicker Game - BypassedGames </title></head>
+	<body>
+		<div id="save-and-load">
+			<button id="reset" onclick="reset()" class="save-buttons"> Reset </button>
+		</div>
+		<div id="gold-items">
+			<button id="1000clicker" onclick="clicked1000()" class="gold-buttons">$100 000 000 to unlock</button>
+			<button id="1000autoclicker" onclick="autoclick1000()" class="gold-buttons">$1 000 000 000 - $1 000 autoclick</button>
+			<button id="1000autobuy" onclick="autobuy1000()" class="gold-buttons">$10 000 000 000 - $1 000 autobuy</button>
+		</div>
+		<div id="silver-items">
+			<button id="500clicker" onclick="clicked500()" class="silver-buttons">$10 000 000 to unlock</button>
+			<button id="500autoclicker" onclick="autoclick500()" class="silver-buttons">$100 000 000 - $500 autoclick</button>
+			<button id="500autobuy" onclick="autobuy500()" class="silver-buttons">$1 000 000 000 - $500 autobuy</button>
+		</div>
+		<div id="bronze-items">
+			<button id="100clicker" onclick="clicked100()" class="bronze-buttons">$1 000 000 to unlock</button>
+			<button id="100autoclicker" onclick="autoclick100()" class="bronze-buttons">$10 000 000 - $100 autoclick</button>
+			<button id="100autobuy" onclick="autobuy100()" class="bronze-buttons">$100 000 000 - $100 autobuy</button>
+		</div>
+		<div id="regular-items">
+			<button id="1clicker" onclick="clicked1()" class="regular-buttons">$1 Clicker</button>
+			<button id="5clicker" onclick="clicked5()" class="regular-buttons">$100 to unlock</button>
+			<button id="10clicker" onclick="clicked10()" class="regular-buttons">$1 000 to unlock</button>
+			<button id="20clicker" onclick="clicked20()" class="regular-buttons">$10 000 to unlock</button>
+
+			<br>
+
+			<button id="1autoclicker" onclick="autoclick1()" class="regular-buttons">$100 - $1 autoclick</button>
+			<button id="5autoclicker" onclick="autoclick5()" class="regular-buttons">$1 000 - $5 autoclick</button>
+			<button id="10autoclicker" onclick="autoclick10()" class="regular-buttons">$10 000 - $10 autoclick</button>
+
+			<br>
+
+			<button id="1autobuy" onclick="autobuy1()" class="regular-buttons">$1 000 - $1 autobuy</button>
+			<button id="5autobuy" onclick="autobuy5()" class="regular-buttons">$10 000 - $5 autobuy</button>
+			<button id="10autobuy" onclick="autobuy10()" class="regular-buttons">$100 000 - $10 autobuy</button>
+
+			<h1 id="count">0</h1><h1 id="subcount">0</h1><h1 id="countPerSecond">0 cps</h1>
+		</div>
+	</body>
+</html>
+
+<style>
+
+	body {
+
+		background-image: linear-gradient(45deg, rgb(100, 100, 100), rgb(50, 50, 50));
+		font-size: 20px;
+
+	}
+
+	#regular-items {
+		
+		text-align: center;
+		position: absolute;
+		top: 77.5%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		background-image: linear-gradient(315deg, rgb(100, 100, 100), rgb(50, 50, 50));
+		border-radius: 10px;
+
+	}
+
+	#bronze-items {
+
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		background: rgb(205, 127, 50);
+		border-radius: 10px;
+
+	}
+
+	#silver-items {
+
+		text-align: center;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		background: rgb(192, 192, 192);
+		border-radius: 10px;
+
+	}
+
+	#gold-items {
+
+		text-align: center;
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		background: rgb(255, 215, 0);
+		border-radius: 10px;
+
+	}
+
+	#save-and-load {
+
+		text-align: center;
+		position: absolute;
+		top: 10%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		background: rgb(255, 255, 255);
+		border-radius: 10px;
+
+	}
+
+	.regular-buttons {
+
+		border-radius: 5px;
+		background: rgb(100, 100, 100);
+
+	}
+
+	.bronze-buttons {
+
+		border-radius: 5px;
+		background: rgb(205, 127, 50);
+
+	}
+
+	.silver-buttons {
+
+		border-radius: 5px;
+		background: rgb(192, 192, 192);
+
+	}
+
+	.gold-buttons {
+
+		border-radius: 5px;
+		background: rgb(255, 215, 0);
+
+	}
+
+	.save-buttons {
+
+		border-radius: 5px;
+		background: rgb(255, 255, 255);
+
+	}
+
+</style>
+
+<script>
+	
+	let key = "BypassedGames";
+
+	let money = 0;
+	let clickable1 = true;
+	let clickable5 = false;
+	let clickable10 = false;
+	let clickable20 = false;
+	let clickable100 = false;
+	let clickable500 = false;
+	let clickable1000 = false;
+
+	let autoMoney = 0;
+
+	let autoBuy1 = false;
+	let autoBuy5 = false;
+	let autoBuy10 = false;
+	let autoBuy100 = false;
+	let autoBuy500 = false;
+	let autoBuy1000 = false;
+
+	let autoBuyToggled1 = false;
+	let autoBuyToggled5 = false;
+	let autoBuyToggled10 = false;
+	let autoBuyToggled100 = false;
+	let autoBuyToggled500 = false;
+	let autoBuyToggled1000 = false;
+
+	function save() {
+
+		localStorage.setItem("money", JSON.stringify(money));
+		localStorage.setItem("clickable1", JSON.stringify(clickable1));
+		localStorage.setItem("clickable5", JSON.stringify(clickable5));
+		localStorage.setItem("clickable10", JSON.stringify(clickable10));
+		localStorage.setItem("clickable20", JSON.stringify(clickable20));
+		localStorage.setItem("clickable100", JSON.stringify(clickable100));
+		localStorage.setItem("clickable500", JSON.stringify(clickable500));
+		localStorage.setItem("clickable1000", JSON.stringify(clickable1000));
+
+		localStorage.setItem("autoMoney", JSON.stringify(autoMoney));
+
+		localStorage.setItem("autobuy1", JSON.stringify(autoBuy1));
+		localStorage.setItem("autobuy5", JSON.stringify(autoBuy5));
+		localStorage.setItem("autobuy10", JSON.stringify(autoBuy10));
+		localStorage.setItem("autobuy100", JSON.stringify(autoBuy100));
+		localStorage.setItem("autobuy500", JSON.stringify(autoBuy500));
+		localStorage.setItem("autobuy1000", JSON.stringify(autoBuy1000));
+		
+		localStorage.setItem("autobuyenabled1", JSON.stringify(autoBuyToggled1));
+		localStorage.setItem("autobuyenabled5", JSON.stringify(autoBuyToggled5));
+		localStorage.setItem("autobuyenabled10", JSON.stringify(autoBuyToggled10));
+		localStorage.setItem("autobuyenabled100", JSON.stringify(autoBuyToggled100));
+		localStorage.setItem("autobuyenabled500", JSON.stringify(autoBuyToggled500));
+		localStorage.setItem("autobuyenabled1000", JSON.stringify(autoBuyToggled1000));
+
+	}
+
+	function load() {
+
+		money = JSON.parse(localStorage.getItem("money"));
+
+		clickable1 = JSON.parse(localStorage.getItem("clickable1"));
+		clickable5 = JSON.parse(localStorage.getItem("clickable5"));
+		clickable10 = JSON.parse(localStorage.getItem("clickable10"));
+		clickable20 = JSON.parse(localStorage.getItem("clickable20"));
+		clickable100 = JSON.parse(localStorage.getItem("clickable100"));
+		clickable500 = JSON.parse(localStorage.getItem("clickable500"));
+		clickable1000 = JSON.parse(localStorage.getItem("clickable1000"));
+
+		autoMoney = JSON.parse(localStorage.getItem("autoMoney"));
+
+		autoBuy1 = JSON.parse(localStorage.getItem("autobuy1"));
+		autoBuy5 = JSON.parse(localStorage.getItem("autobuy5"));
+		autoBuy10 = JSON.parse(localStorage.getItem("autobuy10"));
+		autoBuy100 = JSON.parse(localStorage.getItem("autobuy100"));
+		autoBuy500 = JSON.parse(localStorage.getItem("autobuy500"));
+		autoBuy1000 = JSON.parse(localStorage.getItem("autobuy1000"));
+
+		autoBuyToggled1 = JSON.parse(localStorage.getItem("autobuyenabled1"));
+		autoBuyToggled5 = JSON.parse(localStorage.getItem("autobuyenabled5"));
+		autoBuyToggled10 = JSON.parse(localStorage.getItem("autobuyenabled10"));
+		autoBuyToggled100 = JSON.parse(localStorage.getItem("autobuyenabled100"));
+		autoBuyToggled500 = JSON.parse(localStorage.getItem("autobuyenabled500"));
+		autoBuyToggled1000 = JSON.parse(localStorage.getItem("autobuyenabled1000"));
+
+		document.getElementById("count").innerHTML = money;
+		document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+
+	}
+
+	function reset() {
+
+		money = 0;
+		clickable1 = true;
+		clickable5 = false;
+		clickable10 = false;
+		clickable20 = false;
+		clickable100 = false;
+		clickable500 = false;
+		clickable1000 = false;
+
+		autoMoney = 0;
+
+		autoBuy1 = false;
+		autoBuy5 = false;
+		autoBuy10 = false;
+		autoBuy100 = false;
+		autoBuy500 = false;
+		autoBuy1000 = false;
+
+		autoBuyToggled1 = false;
+		autoBuyToggled5 = false;
+		autoBuyToggled10 = false;
+		autoBuyToggled100 = false;
+		autoBuyToggled500 = false;
+		autoBuyToggled1000 = false;
+
+		document.getElementById("count").innerHTML = money;
+		document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+
+	}
+	
+	function clicked1() {
+
+		if (clickable1) {
+
+			money += 1;
+			document.getElementById("1clicker").innerHTML = "$1 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("1clicker").innerHTML = "$0 to unlock";
+
+			if (money >= 0) {
+
+				clickable1 = true;
+				money -= 0;
+				document.getElementById("1clicker").innerHTML = "$1 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+
+	}
+
+	function clicked5() {
+
+		if (clickable5) {
+
+			money += 5;
+			document.getElementById("5clicker").innerHTML = "$5 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("5clicker").innerHTML = "$100 to unlock";
+
+			if (money >= 100) {
+
+				clickable5 = true;
+				money -= 100;
+				document.getElementById("5clicker").innerHTML = "$5 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+
+	}
+
+	function clicked10() {
+
+		if (clickable10) {
+
+			money += 10;
+			document.getElementById("10clicker").innerHTML = "$10 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("10clicker").innerHTML = "$1 000 to unlock";
+
+			if (money >= 1000) {
+
+				clickable10 = true;
+				money -= 1000;
+				document.getElementById("10clicker").innerHTML = "$10 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+
+	}
+
+	function clicked20() {
+
+		if (clickable20) {
+
+			money += 20;
+			document.getElementById("20clicker").innerHTML = "$20 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("20clicker").innerHTML = "$10 000 to unlock";
+
+			if (money >= 10000) {
+
+				clickable20 = true;
+				money -= 10000;
+				document.getElementById("20clicker").innerHTML = "$20 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+		
+	}
+
+	function clicked100() {
+
+		if (clickable100) {
+
+			money += 100;
+			document.getElementById("100clicker").innerHTML = "$100 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("100clicker").innerHTML = "$1 000 000 to unlock";
+
+			if (money >= 1000000) {
+
+				clickable100 = true;
+				money -= 1000000;
+				document.getElementById("100clicker").innerHTML = "$100 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+		
+	}
+
+	function clicked500() {
+
+		if (clickable500) {
+
+			money += 500;
+			document.getElementById("500clicker").innerHTML = "$500 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("500clicker").innerHTML = "$10 000 000 to unlock";
+
+			if (money >= 10000000) {
+
+				clickable500 = true;
+				money -= 10000000;
+				document.getElementById("500clicker").innerHTML = "$500 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+		
+	}
+
+	function clicked1000() {
+
+		if (clickable1000) {
+
+			money += 1000;
+			document.getElementById("1000clicker").innerHTML = "$1 000 Clicker";
+			document.getElementById("count").innerHTML = money;
+
+		} else {
+
+			document.getElementById("1000clicker").innerHTML = "$100 000 000 to unlock";
+
+			if (money >= 100000000) {
+
+				clickable1000 = true;
+				money -= 100000000;
+				document.getElementById("1000clicker").innerHTML = "$1 000 Clicker";
+				document.getElementById("count").innerHTML = money;
+
+			}
+
+		}
+		
+	}
+
+	function autoclick1() {
+		
+		if (money >= 100) {
+
+			money -= 100;
+			autoMoney += 1;
+			document.getElementById("count").innerHTML = money;
+			document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
+		}
+
+	}
+
+	function autoclick5() {
+		
+		if (money >= 1000) {
+
+			money -= 1000;
+			autoMoney += 5;
+			document.getElementById("count").innerHTML = money;
+			document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
+		}
+
+	}
+
+	function autoclick10() {
+		
+		if (money >= 10000) {
+
+			money -= 10000;
+			autoMoney += 10;
+			document.getElementById("count").innerHTML = money;
+			document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
+		}
+
+	}
+
+	function autoclick100() {
+		
+		if (money >= 10000000) {
+
+			money -= 10000000;
+			autoMoney += 100;
+			document.getElementById("count").innerHTML = money;
+			document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
+		}
+
+	}
+
+	function autoclick500() {
+		
+		if (money >= 100000000) {
+
+			money -= 100000000;
+			autoMoney += 500;
+			document.getElementById("count").innerHTML = money;
+			document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
+		}
+
+	}
+
+	function autoclick1000() {
+		
+		if (money >= 1000000000) {
+
+			money -= 1000000000;
+			autoMoney += 1000;
+			document.getElementById("count").innerHTML = money;
+			document.getElementById("countPerSecond").innerHTML = autoMoney + " cps";
+		
+		}
+
+	}
+
+	function autobuy1() {
+
+		if (money >= 1000 && !autoBuy1) {
+
+			money -= 1000;
+			document.getElementById("count").innerHTML = money;
+			autoBuy1 = true;
+			autoBuyToggled1 = true;
+
+		}
+
+		if (autoBuyToggled1) {
+
+			autoBuyToggled1 = false;
+			document.getElementById("1autobuy").innerHTML = "$1 autobuy bought - off";
+
+		} else {
+
+			autoBuyToggled1 = true;
+			document.getElementById("1autobuy").innerHTML = "$1 autobuy bought - on";
+
+
+		}
+	
+	}
+
+	function autobuy5() {
+
+		if (money >= 10000 && !autoBuy5) {
+
+			money -= 10000;
+			document.getElementById("count").innerHTML = money;
+			autoBuy5 = true;
+			autoBuyToggled5 = true;
+
+		}
+
+		if (autoBuyToggled5) {
+
+			autoBuyToggled5 = false;
+			document.getElementById("5autobuy").innerHTML = "$5 autobuy bought - off";
+
+		} else {
+
+			autoBuyToggled5 = true;
+			document.getElementById("5autobuy").innerHTML = "$5 autobuy bought - on";
+
+
+		}
+	
+	}
+
+	function autobuy10() {
+
+		if (money >= 100000 && !autoBuy10) {
+
+			money -= 100000;
+			document.getElementById("count").innerHTML = money;
+			autoBuy10 = true;
+			autoBuyToggled10 = true;
+
+		}
+
+		if (autoBuyToggled10) {
+
+			autoBuyToggled10 = false;
+			document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - off";
+
+		} else {
+
+			autoBuyToggled10 = true;
+			document.getElementById("10autobuy").innerHTML = "$10 autobuy bought - on";
+
+
+		}
+	
+	}
+
+	function autobuy100() {
+
+		if (money >= 100000000 && !autoBuy100) {
+
+			money -= 100000000;
+			document.getElementById("count").innerHTML = money;
+			autoBuy100 = true;
+			autoBuyToggled100 = true;
+
+		}
+
+		if (autoBuyToggled100) {
+
+			autoBuyToggled100 = false;
+			document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - off";
+
+		} else {
+
+			autoBuyToggled100 = true;
+			document.getElementById("100autobuy").innerHTML = "$100 autobuy bought - on";
+
+
+		}
+	
+	}
+
+	function autobuy500() {
+
+		if (money >= 1000000000 && !autoBuy500) {
+
+			money -= 1000000000;
+			document.getElementById("count").innerHTML = money;
+			autoBuy500 = true;
+			autoBuyToggled500 = true;
+
+		}
+
+		if (autoBuyToggled500) {
+
+			autoBuyToggled500 = false;
+			document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - off";
+
+		} else {
+
+			autoBuyToggled500 = true;
+			document.getElementById("500autobuy").innerHTML = "$500 autobuy bought - on";
+
+
+		}
+	
+	}
+
+	function autobuy1000() {
+
+		if (money >= 10000000000 && !autoBuy1000) {
+
+			money -= 10000000000;
+			document.getElementById("count").innerHTML = money;
+			autoBuy1000 = true;
+			autoBuyToggled1000 = true;
+
+		}
+
+		if (autoBuyToggled1000) {
+
+			autoBuyToggled1000 = false;
+			document.getElementById("1000autobuy").innerHTML = "$1 000 autobuy bought - off";
+
+		} else {
+
+			autoBuyToggled1000 = true;
+			document.getElementById("1000autobuy").innerHTML = "$1 000 autobuy bought - on";
+
+
+		}
+	
+	}
+
+	setInterval(function() {
+
+		money += autoMoney;
+		document.getElementById("count").innerHTML = money;
+
+	}, 1000);
+	
+	load()
+
+	setInterval(function() {
+
+		if (autoBuy1 && autoBuyToggled1) {
+
+			autoclick1();
+
+		}
+
+		if (autoBuy5 && autoBuyToggled5) {
+
+			autoclick5();
+
+		}
+
+		if (autoBuy10 && autoBuyToggled10) {
+
+			autoclick10();
+
+		}
+
+		if (autoBuy100 && autoBuyToggled100) {
+
+			autoclick100();
+
+		}
+
+		if (autoBuy500 && autoBuyToggled500) {
+
+			autoclick500();
+
+		}
+
+		if (autoBuy1000 && autoBuyToggled1000) {
+
+			autoclick1000();
+
+		}
+
+		if (money > 1000000000000) {
+
+			document.getElementById("subcount").innerHTML = Math.floor(money / 1000000000000) + "T";
+
+		} else if (money > 1000000000) {
+
+			document.getElementById("subcount").innerHTML = Math.floor(money / 1000000000) + "B";
+
+		} else if (money > 1000000) {
+
+			document.getElementById("subcount").innerHTML = Math.floor(money / 1000000) + "M";
+
+		} else if (money > 1000) {
+
+			document.getElementById("subcount").innerHTML = Math.floor(money / 1000) + "K";
+
+		} else {
+
+			document.getElementById("subcount").innerHTML = money;
+
+		}
+		
+		save()
+
+	}, 1);
+
+</script>

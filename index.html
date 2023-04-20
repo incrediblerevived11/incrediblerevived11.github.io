@@ -1,0 +1,72 @@
+<html>
+	<head><title> LMelki28's Website - Github Powered</title></head>
+	<body>
+		<div id="content">
+			<div class="game-holder" id="b1">
+				<img src="https://www.lmelki28.github.io/imgs/clicker_game_img.png" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px">
+				<p> Clicker Game </p>
+				<p> Bypassed Games </p>
+			</div>
+			<div class="game-holder" id="b2">
+				<img src="https://www.lmelki28.github.io/imgs/fps-parkour-game-img.png" width="300px" height="200px" style="border-radius: 20px 20px 0px 0px">
+				<p> FPS Parkour </p>
+				<p> Bypassed Games </p>
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	
+	body {
+		
+		background-image: linear-gradient(45deg, rgb(250, 250, 250), rgb(150, 150, 150));
+		font-family: "Courier New";
+		
+	}
+	
+	#content {
+		
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-image: linear-gradient(315deg, rgb(250, 250, 250), rgb(150, 150, 150));
+		width: 90%;
+		height: 90%;
+		font-family: "Courier New";
+		font-size: 20px;
+		color: rgb(255, 255, 255);
+		border-radius: 50px;
+		
+	}
+
+	.game-holder {
+		
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 300px;
+		height: 300px;
+		border-radius: 20px;
+		background: rgb(40, 40, 40);
+
+	}
+
+	#b1 { top: 25%; }
+	#b2 { top: 75%; }
+	
+</style>
+
+<script>
+
+	document.getElementById("b1").addEventListener('click', function() {
+		location.replace("https://www.lmelki28.github.io/clicker.html");
+	});
+
+	document.getElementById("b2").addEventListener('click', function() {
+		location.replace("https://www.lmelki28.github.io/fps-parkour/fps-parkour.html");
+	});
+
+</script>
